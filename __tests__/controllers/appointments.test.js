@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
-import { AppointmentController } from './appointments';
-import { RESPONSE_CODES } from '../constants/responseCodes';
+import { RESPONSE_CODES } from '../../src/constants/responseCodes';
+import {AppointmentController} from "../../src/controllers/index.js";
 
 // Mock the services module on an entry level
-jest.unstable_mockModule('../services', () => ({
+jest.unstable_mockModule('../../src/services', () => ({
 	getAvailableSlots: jest.fn(),
 }));
 
 // Import the mocked module dynamically
-const AppointmentService = await import('../services');
+const AppointmentService = await import('../../src/services');
 
 // Define reusable test data
 const MOCK_REQUEST = {
